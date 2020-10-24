@@ -1,0 +1,252 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    padding: 0;
+    margin: 0;
+    background: #FBF3F2;
+}
+
+/* CSS Variables */
+
+:root {
+    --clr-background: #FBF3F2; 
+    --clr-dark: #032539;
+    --clr-light: #1C768F;
+    --clr-light-transparent: #1c768fcc;
+    --clr-accent: #FA991C;
+}
+
+
+/* Global */
+
+.container{
+    width: 75%;
+    margin: auto;
+    overflow: hidden;
+}
+
+/* Header */
+header {
+    background: var(--clr-dark);
+    color: var(--clr-background);
+    padding-top: 30px;
+    min-height: 70px;
+    border-bottom: var(--clr-light) 3px solid;
+}
+
+header a {
+    color: var(--clr-background);
+    text-decoration: none;
+    text-transform: uppercase;
+    font-size: 16px;
+}
+
+header ul {
+    margin: 0;
+    padding: 0;    
+}
+
+header li {
+    float: left;
+    display: inline;
+    padding: 0 20px 0 20px;
+}
+
+header #branding {
+    float: left;
+
+}
+
+header #branding h1 {
+    margin: 0;
+    margin-bottom: 5px; 
+}
+
+header nav {
+    float: right;
+    margin-top: 15px;
+}
+
+header .highlight, header .current a {
+    color: var(--clr-accent);
+    margin-top: 10px;
+}
+
+header a:hover{
+    color: var(--clr-accent);
+    font-weight: bold;
+}
+
+/* Title */
+
+#title {
+    min-height: 100px;
+    text-align: center;
+    color: var(--clr-dark);
+}
+
+#title h1 {
+    margin-top: 60px;
+    font-size: 55px;
+    margin-bottom: 10px;
+}
+
+#title h1 strong{
+    color: var(--clr-light);
+}
+
+#title p {
+    font-size: 20px;
+    color: var(--clr-dark);
+}
+
+/* Boxes */
+
+.hoverscape {
+    width: 1280px;
+    margin: 70px auto;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.hoverscape .hoverbox {
+    position: relative;
+    width: 300px;
+    height: 300px;
+    background: var(--clr-dark);
+    margin: 15px;
+    box-sizing: border-box;
+    display: inline-block;
+    border: var(--clr-dark) 3px solid;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.hoverscape .hoverbox .imghover {
+    position: relative;
+    overflow: hidden;
+}
+
+.hoverscape .hoverbox .imghover img {
+    max-width: 100%;
+}
+
+.hoverscape .hoverbox:hover .imghover {
+    transform: scale(1.2);
+    transition: transform .25s;
+}
+
+.hoverscape .hoverbox .hoverdetails {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    bottom: 10px;
+    right: 10px;
+    background: var(--clr-light-transparent); 
+    transform: scaleY(0);
+    transition: transform .25s;
+}
+
+.hoverscape .hoverbox .hoverdetails .hovercontent {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    text-align: center;
+    padding: 15px;
+    color: var(--clr-background);
+}
+
+.hoverscape .hoverbox:hover .hoverdetails {
+    transform: scaleY(1);
+}
+
+.hoverscape .hoverbox .hoverdetails .hovercontent h3 {
+    margin: 0;
+    padding: 0;
+    font-size: 20px;
+    color: var(--clr-accent);
+}
+
+
+
+/* Footer */
+
+footer{
+    padding:20px;
+    margin-top:20px;
+    color:var(--clr-background);
+    background-color:var(--clr-dark);
+    text-align: center;
+}
+
+/* Media Queries */
+
+/* standard tablet size */
+@media (max-width: 768px) {
+
+    header #branding,
+    header nav,
+    header nav li {
+        float: none;
+        text-align: center;
+        width: 100%;
+    }
+
+    header nav li {
+        display: block;
+    }
+
+    header {
+        padding-bottom: 20px;
+    }
+
+    .hoverscape {
+        width: min-content;
+        margin: 0 auto;
+        grid-column-gap: 1em;
+        grid-template-columns: min-content max-content;
+    }
+
+    .hoverscape .hoverbox {
+        position: auto;
+        box-sizing: border-box;
+    }
+}
+
+/* standard phone size */
+@media (max-width: 480px) {
+    #title h1 {
+        font-size: 40px;
+    }
+
+    #title p {
+        font-size: 15px;
+    }
+
+    .hoverscape {
+        width: min-content;
+        margin: 0 auto;
+        grid-column-gap: 1em;
+        grid-template-columns: min-content max-content;
+    }
+
+    .hoverscape .hoverbox {
+        position: auto;
+        width: 200px;
+        height: 200px;
+        box-sizing: border-box;
+    }
+
+    .hoverscape .hoverbox .hoverdetails .hovercontent h3 {
+        font-size: 15px;
+    }
+
+    .hoverscape .hoverbox .hoverdetails .hovercontent p {
+        font-size: 12px;
+    } 
+}
